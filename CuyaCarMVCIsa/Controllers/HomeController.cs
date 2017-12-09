@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CuyaCarMVCIsa.Models;
 
 namespace CuyaCarMVCIsa.Controllers
 {
@@ -13,14 +14,34 @@ namespace CuyaCarMVCIsa.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult Coche()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Esto es un ViewBag.Message.";
+            Coche coche = new Coche();
+            coche.marca ="Renault";
+            coche.matricula ="123456";
+            //ViewBag.Message = coche.marca;
 
             return View();
         }
 
-        public ActionResult Contact()
+
+        [HttpPost]
+        public ActionResult Coche(Coche coche)
+        {
+            ViewBag.Message = "Esto es un ViewBag.Message.";
+            Coche uncoche = new Coche();
+            //uncoche.marca = "Renault";
+            //uncoche.matricula = "654321";
+            ViewBag.Message = coche.marca;
+            ViewBag.Message = coche.matricula;
+
+            return View(uncoche);
+        }
+
+
+        public ActionResult Cliente()
         {
             ViewBag.Message = "Your contact page.";
 
