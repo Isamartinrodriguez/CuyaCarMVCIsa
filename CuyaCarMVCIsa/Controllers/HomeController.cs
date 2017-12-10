@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CuyaCarMVCIsa.Models;
+using CuyaCarMVCIsa.BDContext;
 
 namespace CuyaCarMVCIsa.Controllers
 {
@@ -17,7 +18,7 @@ namespace CuyaCarMVCIsa.Controllers
         [HttpGet]
         public ActionResult Coche()
         {
-            ViewBag.Message = "Esto es un ViewBag.Message.";
+            ViewBag.Message = "Esto es un ViewBag.Message en Get";
             Coche coche = new Coche();
             coche.marca ="Renault";
             coche.matricula ="123456";
@@ -30,14 +31,16 @@ namespace CuyaCarMVCIsa.Controllers
         [HttpPost]
         public ActionResult Coche(Coche coche)
         {
-            ViewBag.Message = "Esto es un ViewBag.Message.";
-            Coche uncoche = new Coche();
+            ViewBag.Message = "Esto es un ViewBag.Message en Post";
+            //Coche uncoche = new Coche();
             //uncoche.marca = "Renault";
             //uncoche.matricula = "654321";
-            ViewBag.Message = coche.marca;
-            ViewBag.Message = coche.matricula;
-
-            return View(uncoche);
+         
+            var db = new CuyaCarsDbContext();
+            db.Coche.Add(coche);
+            db.SaveChanges();
+            
+            return View();
         }
 
 

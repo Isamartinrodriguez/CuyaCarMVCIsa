@@ -3,6 +3,7 @@
 
 <!---->
 
+@model CuyaCarMVCIsa.Models.Coche
 @{
     ViewBag.Title = "Coche";
 
@@ -11,21 +12,26 @@
 <h3>@ViewBag.Message</h3>
 <!-- <h3>Coche: Model.matricula</h3>-->
 
-@model CuyaCarMVCIsa.Models.Coche
+
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.marca)
-    @Html.EditorFor(model => model.marca)
-    <input type="submit" value="buscar" />
+
+    @Html.LabelFor(modelCoche => modelCoche.marca)
+    @Html.EditorFor(modelCoche => modelCoche.marca)
+    <br>
+    @Html.LabelFor(model => model.matricula)
+    @Html.EditorFor(model => model.matricula)
+    <br>
+    <input name="añadir" type="submit" value="Añadir" />
+    <input name="buscar" type="submit" value="Buscar" />
 }
 
 
-<form action="~/Model/Coche" method="post">
+<!--<form action="~/Model/Coche" method="post">
     <label for="Matricula">Matricula</label>
     <input id="Matricula" name="Matricula" type="text" value="">
     <input type="submit" value="buscar" />
-</form>
-
+</form>-->
 <!-- <input id="Marca" type="text" /><br>-->
 
 <p>Use this area to provide additional information.</p>
