@@ -5,6 +5,8 @@
 
 @model CuyaCarMVCIsa.Models.Coche
 @{
+    /**/
+
     ViewBag.Title = "Coche";
 
 }
@@ -16,21 +18,24 @@
 @using (Html.BeginForm())
 {
 
-    @Html.LabelFor(modelCoche => modelCoche.marca)
-    @Html.EditorFor(modelCoche => modelCoche.marca)
+    @Html.LabelFor(modelCoche => modelCoche.Marca)
+    @Html.EditorFor(modelCoche => modelCoche.Marca)
     <br>
-    @Html.LabelFor(model => model.matricula)
-    @Html.EditorFor(model => model.matricula)
+    @Html.LabelFor(model => model.Matricula)
+    @Html.EditorFor(model => model.Matricula)
     <br>
-    <input name="añadir" type="submit" value="Añadir" />
-    <input name="buscar" type="submit" value="Buscar" />
+    <input name="añadir" type="submit" onclick="location.href='@Url.Action("Añadir", "Home")'" value="Añadir" />
+    <input name="buscar" id="buscar" type="submit" onclick="location.href='@Url.Action("Buscar", "Home")'" value="Buscar" />
+    //<output name="valorbuscar" for="buscar" />
 }
 
+<!--<form method="Post">
+    <input name="mostrartodos" id="mostrartodos" type="submit" onclick="location.href='@Url.Action("Mostrartodos", "Home")'" value="Mostrar Todos" />
+    <output name="valormostrartodos" for="mostrartodos" />
 
-<!--<form action="~/Model/Coche" method="post">
     <label for="Matricula">Matricula</label>
-    <input id="Matricula" name="Matricula" type="text" value="">
-    <input type="submit" value="buscar" />
+        <input id="Matricula" name="Matricula" type="text" value="">
+        <input type="submit" value="buscar" />
 </form>-->
 <!-- <input id="Marca" type="text" /><br>-->
 

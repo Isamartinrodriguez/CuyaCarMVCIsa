@@ -8,10 +8,11 @@ namespace CuyaCarMVCIsa.Models
 {
     public class Coche
     {
-        [Key] 
-        public int bastidor { get; set; }
-        public string marca { get; set; }
-        public string matricula { get; set; }
+        //private int _bastidor;
 
+        //[Key]
+        public int Bastidor { get; set; }
+        public string Marca { get; set; }
+        public string Matricula { get; set; }
     }
 }
